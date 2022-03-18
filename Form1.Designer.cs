@@ -40,6 +40,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -118,7 +119,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 15);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Nama File";
+            this.label3.Text = "File Name";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button2
@@ -137,27 +138,27 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(41, 189);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(122, 19);
+            this.checkBox1.Size = new System.Drawing.Size(127, 19);
             this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "Find all occurence";
+            this.checkBox1.Text = "Find all occurences";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(41, 273);
+            this.label4.Location = new System.Drawing.Point(41, 287);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 15);
+            this.label4.Size = new System.Drawing.Size(68, 15);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Folder File";
+            this.label4.Text = "File Path(s):";
             this.label4.Visible = false;
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(41, 288);
+            this.linkLabel1.Location = new System.Drawing.Point(41, 302);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(60, 15);
             this.linkLabel1.TabIndex = 11;
@@ -165,11 +166,23 @@
             this.linkLabel1.Text = "linkLabel1";
             this.linkLabel1.Visible = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(41, 256);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 15);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Elapsed time: ";
+            this.label5.Visible = false;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 403);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.checkBox1);
@@ -203,5 +216,6 @@
         private CheckBox checkBox1;
         private Label label4;
         private LinkLabel linkLabel1;
+        private Label label5;
     }
 }

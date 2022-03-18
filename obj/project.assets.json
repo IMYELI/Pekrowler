@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Rozan.LAPTOP-873GUEJC\\.nuget\\packages\\": {}
+    "C:\\Users\\zaydz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Code\\C#\\TubesStima2\\Pekrowler\\Pekrowler.csproj",
+      "projectUniqueName": "C:\\Users\\zaydz\\OneDrive - Institut Teknologi Bandung\\Semester 4\\Stima\\Tubes 2\\Pekrowler\\Pekrowler\\Pekrowler.csproj",
       "projectName": "Pekrowler",
-      "projectPath": "D:\\Code\\C#\\TubesStima2\\Pekrowler\\Pekrowler.csproj",
-      "packagesPath": "C:\\Users\\Rozan.LAPTOP-873GUEJC\\.nuget\\packages\\",
-      "outputPath": "D:\\Code\\C#\\TubesStima2\\Pekrowler\\obj\\",
+      "projectPath": "C:\\Users\\zaydz\\OneDrive - Institut Teknologi Bandung\\Semester 4\\Stima\\Tubes 2\\Pekrowler\\Pekrowler\\Pekrowler.csproj",
+      "packagesPath": "C:\\Users\\zaydz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\zaydz\\OneDrive - Institut Teknologi Bandung\\Semester 4\\Stima\\Tubes 2\\Pekrowler\\Pekrowler\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Rozan.LAPTOP-873GUEJC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zaydz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

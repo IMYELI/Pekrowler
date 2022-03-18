@@ -1,3 +1,6 @@
+using System;
+using System.Diagnostics;
+
 namespace Pekrowler
 {
     public partial class Form1 : Form
@@ -53,11 +56,39 @@ namespace Pekrowler
             string fileName = textBox2.Text;
             string rootFolder = textBox1.Text;
             bool findAll = checkBox1.Checked;
+            List<string> paths;
+
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
             if (radioButton1.Checked)
             {
-                Crawler.BFS.searchBFS(fileName, rootFolder, findAll);
+                paths = Crawler.BFS.searchBFS(fileName, rootFolder, findAll);
             }
-            
+            else
+            {
+                paths = Crawler.DFS.searchDFS(fileName, rootFolder, findAll);
+            }
+
+            stopWatch.Stop();
+
+            if (paths.Count > 0)
+            {
+                linkLabel1.Text = "";
+                for (int i = 0; i < paths.Count; i++)
+                {
+                    linkLabel1.Text = linkLabel1.Text + (i+1).ToString() + ". " + paths[i] + "\n";
+                }
+            }
+            else
+            {
+                linkLabel1.Text = "File not found.";
+            }
+
+            label5.Text = "Elapsed time: ";
+            label5.Text = label5.Text + stopWatch.Elapsed.Milliseconds.ToString() + "ms";
+
+            label5.Show();
             linkLabel1.Show();
         }
 
@@ -69,6 +100,11 @@ namespace Pekrowler
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             button2.Enabled = (radioButton1.Checked || radioButton2.Checked);
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
