@@ -15,3 +15,20 @@ D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\
 D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.pdb
 D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.genruntimeconfig.cache
 D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\ref\Pekrowler.dll
+D:\Code\C#\TubesStima2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.exe
+D:\Code\C#\TubesStima2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.deps.json
+D:\Code\C#\TubesStima2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.runtimeconfig.json
+D:\Code\C#\TubesStima2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.dll
+D:\Code\C#\TubesStima2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.pdb
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.AssemblyReference.cache
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.Form1.resources
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.GenerateResource.cache
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.AssemblyInfoInputs.cache
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.AssemblyInfo.cs
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.CoreCompileInputs.cache
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.dll
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\refint\Pekrowler.dll
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.pdb
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.genruntimeconfig.cache
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\ref\Pekrowler.dll

@@ -8,24 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\andre\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Rozan.LAPTOP-873GUEJC\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Tugas Andre\\ITB\\IF\\Semester 4\\Strategi Algoritma\\Tubes 2\\Pekrowler\\Pekrowler.csproj",
+      "projectUniqueName": "D:\\Code\\C#\\TubesStima2\\Pekrowler\\Pekrowler.csproj",
       "projectName": "Pekrowler",
-      "projectPath": "D:\\Tugas Andre\\ITB\\IF\\Semester 4\\Strategi Algoritma\\Tubes 2\\Pekrowler\\Pekrowler.csproj",
-      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "D:\\Tugas Andre\\ITB\\IF\\Semester 4\\Strategi Algoritma\\Tubes 2\\Pekrowler\\obj\\",
+      "projectPath": "D:\\Code\\C#\\TubesStima2\\Pekrowler\\Pekrowler.csproj",
+      "packagesPath": "C:\\Users\\Rozan.LAPTOP-873GUEJC\\.nuget\\packages\\",
+      "outputPath": "D:\\Code\\C#\\TubesStima2\\Pekrowler\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Rozan.LAPTOP-873GUEJC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

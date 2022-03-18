@@ -55,7 +55,7 @@ namespace Pekrowler
             bool findAll = checkBox1.Checked;
             if (radioButton1.Checked)
             {
-                Program.searchBFS(fileName, rootFolder, findAll);
+                Crawler.BFS.searchBFS(fileName, rootFolder, findAll);
             }
             
             linkLabel1.Show();
