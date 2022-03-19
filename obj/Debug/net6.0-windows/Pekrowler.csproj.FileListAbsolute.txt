@@ -49,3 +49,8 @@ C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pe
 C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.pdb
 C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.genruntimeconfig.cache
 C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\ref\Pekrowler.dll
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\AutomaticGraphLayout.dll
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\AutomaticGraphLayout.Drawing.dll
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\Microsoft.Msagl.GraphViewerGdi.dll
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\Microsoft.Msagl.WpfGraphControl.dll
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.CopyComplete

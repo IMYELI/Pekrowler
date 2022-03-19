@@ -10,6 +10,23 @@ namespace Pekrowler
             InitializeComponent();
         }
 
+        private void gViewer1_Load(object sender, EventArgs e)
+        {
+            /*Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
+            //create the graph content 
+            graph.AddEdge("A", "B");
+            graph.AddEdge("B", "C");
+            graph.AddEdge("A", "C").Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
+            graph.FindNode("A").Attr.FillColor = Microsoft.Msagl.Drawing.Color.Magenta;
+            graph.FindNode("B").Attr.FillColor = Microsoft.Msagl.Drawing.Color.MistyRose;
+            Microsoft.Msagl.Drawing.Node c = graph.FindNode("C");
+            c.Attr.FillColor = Microsoft.Msagl.Drawing.Color.PaleGreen;
+            c.Attr.Shape = Microsoft.Msagl.Drawing.Shape.Diamond;
+            //bind the graph to the viewer 
+            gViewer1.Graph = graph;*/
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
@@ -56,6 +73,7 @@ namespace Pekrowler
             string fileName = textBox2.Text;
             string rootFolder = textBox1.Text;
             bool findAll = checkBox1.Checked;
+            Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
             List<string> paths;
 
             Stopwatch stopWatch = new Stopwatch();
@@ -63,11 +81,11 @@ namespace Pekrowler
 
             if (radioButton1.Checked)
             {
-                paths = Crawler.BFS.searchBFS(fileName, rootFolder, findAll);
+                paths = Crawler.BFS.searchBFS(fileName, rootFolder, findAll, ref graph);
             }
             else
             {
-                paths = Crawler.DFS.searchDFS(fileName, rootFolder, findAll);
+                paths = Crawler.DFS.searchDFS(fileName, rootFolder, findAll, ref graph);
             }
 
             stopWatch.Stop();
@@ -88,6 +106,8 @@ namespace Pekrowler
             label5.Text = "Elapsed time: ";
             label5.Text = label5.Text + stopWatch.Elapsed.Milliseconds.ToString() + "ms";
 
+            gViewer1.Graph = graph;
+
             label5.Show();
             linkLabel1.Show();
         }
@@ -103,6 +123,21 @@ namespace Pekrowler
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }

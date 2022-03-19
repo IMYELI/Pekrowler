@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "sJCa14vMjkMdIwYMfnEn1i8kmLsqYqsrwHog/s6fAfj91PAyTo+9agRMWrwoRDcJTax71RmuVa7uBZeME+u99w==",
+  "dgSpecHash": "OVlrHOBh1QcGgDBTCFscjF9kKIBqg70CsNYG9rfIfSExykuAWO1VaqR/BtE4GJlhsOphw1xgGS0EXKK0saXKMA==",
   "success": true,
   "projectFilePath": "C:\\Users\\zaydz\\OneDrive - Institut Teknologi Bandung\\Semester 4\\Stima\\Tubes 2\\Pekrowler\\Pekrowler\\Pekrowler.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\zaydz\\.nuget\\packages\\automaticgraphlayout\\1.1.11\\automaticgraphlayout.1.1.11.nupkg.sha512",
+    "C:\\Users\\zaydz\\.nuget\\packages\\automaticgraphlayout.drawing\\1.1.11\\automaticgraphlayout.drawing.1.1.11.nupkg.sha512",
+    "C:\\Users\\zaydz\\.nuget\\packages\\automaticgraphlayout.graphviewergdi\\1.1.11\\automaticgraphlayout.graphviewergdi.1.1.11.nupkg.sha512",
+    "C:\\Users\\zaydz\\.nuget\\packages\\automaticgraphlayout.wpfgraphcontrol\\1.1.11\\automaticgraphlayout.wpfgraphcontrol.1.1.11.nupkg.sha512"
+  ],
   "logs": []
 }
