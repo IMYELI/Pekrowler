@@ -26,6 +26,12 @@
             Global.pathQueue = new Queue<string>();
             Global.result = new List<string>();
         }
+        public static void colorGreen(string[] edges, ref Microsoft.Msagl.Drawing.Graph graph)
+        {
+            for(int i=0;i<edges.Length-1;i++){
+                graph.AddEdge(edges[i],edges[i+1]).Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
+            }
+        }
     }
     class DFS
     {
@@ -52,12 +58,17 @@
                 if (file == path + "\\" + fileToSearch && Global.isRunning)
                 {
                     Global.result.Add(file);
+                    string[] greenEdge = file.Split(Path.DirectorySeparatorChar);
+                    Global.colorGreen(greenEdge,graph);
                     Console.WriteLine("eureka!");
                     if (!searchAll)
                     {
                         Global.isRunning = false;
                         return;
                     }
+                }else
+                {
+                    graph.AddEdge(parent, child).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
                 }
             }
 
@@ -70,6 +81,7 @@
                     string parent = path.Split(Path.DirectorySeparatorChar).Last();
                     string folder = dir.Split(Path.DirectorySeparatorChar).Last();
                     graph.AddEdge(parent, folder);
+                    graph.AddEdge(parent, folder).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
                     recursivelySearchDFS(fileToSearch, dir, searchAll, ref graph);
                 }
             }
@@ -99,12 +111,16 @@
                     {
                         Global.result.Add(file);
                         Console.WriteLine("eureka!");
+                        string[] greenEdge = file.Split(Path.DirectorySeparatorChar);
+                        Global.colorGreen(greenEdge,graph);
                         if (!searchAll)
                         {
                             res = utility.copyList(Global.result);
                             Global.clean();
                             return res;
                         }
+                    }else{
+                        graph.AddEdge(parent, child).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
                     }
                 }
 
@@ -114,6 +130,7 @@
                     string parent = path.Split(Path.DirectorySeparatorChar).Last();
                     string folder = dir.Split(Path.DirectorySeparatorChar).Last();
                     graph.AddEdge(parent, folder);
+                    graph.AddEdge(parent, folder).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
                     Global.pathQueue.Enqueue(dir);
                 }
             }
