@@ -33,7 +33,7 @@ namespace Crawler
 
             for (int i=0;i<edges.Length-1;i++){
                 System.Diagnostics.Debug.WriteLine("! " + edges[i] + " PEKO " + edges[i + 1]);
-                Microsoft.Msagl.Drawing.Edge currEdge = graph.EdgeById(edges[i] + " PEKO " + edges[i + 1]);
+                Microsoft.Msagl.Drawing.Edge currEdge = Global.edgeMap[edges[i] + " PEKO " + edges[i + 1]];
                 if (currEdge == null)
                 {
                     System.Diagnostics.Debug.WriteLine("NOT FOUND " + edges[i] + " PEKO " + edges[i + 1]);
@@ -46,6 +46,8 @@ namespace Crawler
                 }
             }
         }
+
+        public static Dictionary<String, Microsoft.Msagl.Drawing.Edge> edgeMap = new();
 
     }
     class DFS
@@ -70,6 +72,7 @@ namespace Crawler
                 
                 Microsoft.Msagl.Drawing.Edge test = graph.AddEdge(parent, child);
                 test.Attr.Id = parent +" PEKO " + child;
+                Global.edgeMap[parent + " PEKO " + child] = test;
                 if (file == path + "\\" + fileToSearch && Global.isRunning)
                 {
                     Global.result.Add(file);
@@ -99,6 +102,7 @@ namespace Crawler
                     Microsoft.Msagl.Drawing.Edge eg = graph.AddEdge(parent, folder);
                     eg.Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
                     eg.Attr.Id = parent + " PEKO " + folder;
+                    Global.edgeMap[parent + " PEKO " + folder] = eg;
 
                     recursivelySearchDFS(fileToSearch, dir, searchAll, ref graph, ref gViewer1,pathBapak);
                 }
@@ -125,6 +129,7 @@ namespace Crawler
                     string child = file.Split(Path.DirectorySeparatorChar).Last();
                     Microsoft.Msagl.Drawing.Edge test = graph.AddEdge(parent, child);
                     test.Attr.Id = parent + " PEKO " + child;
+                    Global.edgeMap[parent + " PEKO " + child] = test;
                     System.Diagnostics.Debug.WriteLine("> " + test.Attr.Id);
                     string parentAsli = pathToSearch.Split(Path.DirectorySeparatorChar).Last();
                     string pathBenar = path.Replace(pathToSearch, parentAsli);
@@ -151,6 +156,7 @@ namespace Crawler
                     string folder = dir.Split(Path.DirectorySeparatorChar).Last();
                     Microsoft.Msagl.Drawing.Edge eg = graph.AddEdge(parent, folder);
                     eg.Attr.Id = parent + " PEKO " + folder;
+                    Global.edgeMap[parent + " PEKO " + folder] = eg;
                     System.Diagnostics.Debug.WriteLine("> " + eg.Attr.Id);
                     Global.pathQueue.Enqueue(dir);
                 }
