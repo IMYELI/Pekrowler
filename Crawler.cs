@@ -1,4 +1,5 @@
-﻿namespace Crawler
+﻿using System.Diagnostics;
+namespace Crawler
 {
     class utility
     {
@@ -26,41 +27,52 @@
             Global.pathQueue = new Queue<string>();
             Global.result = new List<string>();
         }
-        public static void colorGreen(string[] edges, ref Microsoft.Msagl.Drawing.Graph graph)
+        public static void colorEdge(string path, ref Microsoft.Msagl.Drawing.Graph graph, Microsoft.Msagl.Drawing.Color color)
         {
-            for(int i=0;i<edges.Length-1;i++){
-                graph.AddEdge(edges[i],edges[i+1]).Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
+            string[] edges = path.Split(Path.DirectorySeparatorChar);
+            foreach(string edge in edges)
+            {
+                System.Diagnostics.Debug.WriteLine(edge);
+            }
+            for (int i=0;i<edges.Length-1;i++){
+
+                if(graph.EdgeById(edges[i] + " PEKO " + edges[i + 1]).Attr.Color != Microsoft.Msagl.Drawing.Color.Green)
+                {
+                    graph.EdgeById(edges[i] + " PEKO " + edges[i + 1]).Attr.Color = color;
+                }
             }
         }
+
     }
     class DFS
     {
-        public static List<string> searchDFS(string fileToSearch, string path, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph)
+        public static List<string> searchDFS(string fileToSearch, string path, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph,ref Microsoft.Msagl.GraphViewerGdi.GViewer gViewer1)
         {
             Global.isRunning = true;
             List<string> res;
-            recursivelySearchDFS(fileToSearch, path, searchAll, ref graph);
+            recursivelySearchDFS(fileToSearch, path, searchAll, ref graph, ref gViewer1,path);
             res = utility.copyList(Global.result);
             Global.clean();
             return res;
         }
 
-        private static void recursivelySearchDFS(string fileToSearch, string path, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph)
+        private static void recursivelySearchDFS(string fileToSearch, string path, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph,ref Microsoft.Msagl.GraphViewerGdi.GViewer gViewer1, string pathBapak)
         {
             String[] files = Directory.GetFiles(Path.GetFullPath(path));
-            Console.WriteLine(String.Format("Searching \"{0}\" in \"{1}\"", fileToSearch, path));
             foreach (string file in files)
             {
                 string parent = path.Split(Path.DirectorySeparatorChar).Last();
                 string child = file.Split(Path.DirectorySeparatorChar).Last();
-                graph.AddEdge(parent, child);
-                Console.WriteLine(file);
+                
+                Microsoft.Msagl.Drawing.Edge test = graph.AddEdge(parent, child);
+                test.Attr.Id = parent +" PEKO " + child;
                 if (file == path + "\\" + fileToSearch && Global.isRunning)
                 {
                     Global.result.Add(file);
-                    string[] greenEdge = file.Split(Path.DirectorySeparatorChar);
-                    Global.colorGreen(greenEdge,graph);
-                    Console.WriteLine("eureka!");
+                    string parentAsli = pathBapak.Split(Path.DirectorySeparatorChar).Last();
+                    string pathBenar = path.Replace(pathBapak, parentAsli);
+                    pathBenar += "\\" + child;
+                    Global.colorEdge(pathBenar,ref graph,Microsoft.Msagl.Drawing.Color.Green);
                     if (!searchAll)
                     {
                         Global.isRunning = false;
@@ -68,7 +80,7 @@
                     }
                 }else
                 {
-                    graph.AddEdge(parent, child).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                    test.Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
                 }
             }
 
@@ -80,9 +92,11 @@
                 {
                     string parent = path.Split(Path.DirectorySeparatorChar).Last();
                     string folder = dir.Split(Path.DirectorySeparatorChar).Last();
-                    graph.AddEdge(parent, folder);
-                    graph.AddEdge(parent, folder).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
-                    recursivelySearchDFS(fileToSearch, dir, searchAll, ref graph);
+                    Microsoft.Msagl.Drawing.Edge eg = graph.AddEdge(parent, folder);
+                    eg.Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                    eg.Attr.Id = parent + " PEKO " + folder;
+
+                    recursivelySearchDFS(fileToSearch, dir, searchAll, ref graph, ref gViewer1,pathBapak);
                 }
             }
         }
@@ -100,19 +114,21 @@
                 string path = Global.pathQueue.Dequeue();
                 String[] files = Directory.GetFiles(Path.GetFullPath(path));
                 Console.WriteLine();
-                Console.WriteLine(String.Format("Searching \"{0}\" in \"{1}\"", fileToSearch, path));
                 foreach (string file in files)
                 {
                     Console.WriteLine(file);
                     string parent = path.Split(Path.DirectorySeparatorChar).Last();
                     string child = file.Split(Path.DirectorySeparatorChar).Last();
-                    graph.AddEdge(parent, child);
+                    Microsoft.Msagl.Drawing.Edge test = graph.AddEdge(parent, child);
+                    test.Attr.Id = parent + " PEKO " + child;
+                    System.Diagnostics.Debug.WriteLine(test.Attr.Id + " CEK");
+                    string parentAsli = pathToSearch.Split(Path.DirectorySeparatorChar).Last();
+                    string pathBenar = path.Replace(pathToSearch, parentAsli);
+                    pathBenar += "\\" + child;
                     if (file == path + "\\" + fileToSearch)
                     {
                         Global.result.Add(file);
-                        Console.WriteLine("eureka!");
-                        string[] greenEdge = file.Split(Path.DirectorySeparatorChar);
-                        Global.colorGreen(greenEdge,graph);
+                        Global.colorEdge(pathBenar,ref graph,Microsoft.Msagl.Drawing.Color.Green);
                         if (!searchAll)
                         {
                             res = utility.copyList(Global.result);
@@ -120,7 +136,7 @@
                             return res;
                         }
                     }else{
-                        graph.AddEdge(parent, child).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                        Global.colorEdge(pathBenar,ref graph,Microsoft.Msagl.Drawing.Color.Red);
                     }
                 }
 
@@ -129,8 +145,8 @@
                 {
                     string parent = path.Split(Path.DirectorySeparatorChar).Last();
                     string folder = dir.Split(Path.DirectorySeparatorChar).Last();
-                    graph.AddEdge(parent, folder);
-                    graph.AddEdge(parent, folder).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                    Microsoft.Msagl.Drawing.Edge eg = graph.AddEdge(parent, folder);
+                    eg.Attr.Id = parent + " PEKO " + folder;
                     Global.pathQueue.Enqueue(dir);
                 }
             }

@@ -12,18 +12,7 @@ namespace Pekrowler
 
         private void gViewer1_Load(object sender, EventArgs e)
         {
-            /*Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
-            //create the graph content 
-            graph.AddEdge("A", "B");
-            graph.AddEdge("B", "C");
-            graph.AddEdge("A", "C").Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
-            graph.FindNode("A").Attr.FillColor = Microsoft.Msagl.Drawing.Color.Magenta;
-            graph.FindNode("B").Attr.FillColor = Microsoft.Msagl.Drawing.Color.MistyRose;
-            Microsoft.Msagl.Drawing.Node c = graph.FindNode("C");
-            c.Attr.FillColor = Microsoft.Msagl.Drawing.Color.PaleGreen;
-            c.Attr.Shape = Microsoft.Msagl.Drawing.Shape.Diamond;
-            //bind the graph to the viewer 
-            gViewer1.Graph = graph;*/
+
 
         }
 
@@ -85,9 +74,8 @@ namespace Pekrowler
             }
             else
             {
-                paths = Crawler.DFS.searchDFS(fileName, rootFolder, findAll, ref graph);
+                paths = Crawler.DFS.searchDFS(fileName, rootFolder, findAll, ref graph, ref gViewer1);
             }
-
             stopWatch.Stop();
 
             if (paths.Count > 0)
@@ -107,6 +95,7 @@ namespace Pekrowler
             label5.Text = label5.Text + stopWatch.Elapsed.Milliseconds.ToString() + "ms";
 
             gViewer1.Graph = graph;
+
 
             label5.Show();
             linkLabel1.Show();

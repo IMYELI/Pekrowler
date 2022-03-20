@@ -54,3 +54,8 @@ C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pe
 C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\Microsoft.Msagl.GraphViewerGdi.dll
 C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\Microsoft.Msagl.WpfGraphControl.dll
 C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.CopyComplete
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\AutomaticGraphLayout.dll
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\AutomaticGraphLayout.Drawing.dll
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\Microsoft.Msagl.GraphViewerGdi.dll
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\Microsoft.Msagl.WpfGraphControl.dll
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.CopyComplete
