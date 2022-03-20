@@ -27,18 +27,22 @@ namespace Crawler
             Global.pathQueue = new Queue<string>();
             Global.result = new List<string>();
         }
-        public static void colorEdge(string path, ref Microsoft.Msagl.Drawing.Graph graph, Microsoft.Msagl.Drawing.Color color)
+        public static void colorEdge(string path, Microsoft.Msagl.Drawing.Graph graph, Microsoft.Msagl.Drawing.Color color)
         {
             string[] edges = path.Split(Path.DirectorySeparatorChar);
-            foreach(string edge in edges)
-            {
-                System.Diagnostics.Debug.WriteLine(edge);
-            }
-            for (int i=0;i<edges.Length-1;i++){
 
-                if(graph.EdgeById(edges[i] + " PEKO " + edges[i + 1]).Attr.Color != Microsoft.Msagl.Drawing.Color.Green)
+            for (int i=0;i<edges.Length-1;i++){
+                System.Diagnostics.Debug.WriteLine("! " + edges[i] + " PEKO " + edges[i + 1]);
+                Microsoft.Msagl.Drawing.Edge currEdge = graph.EdgeById(edges[i] + " PEKO " + edges[i + 1]);
+                if (currEdge == null)
                 {
-                    graph.EdgeById(edges[i] + " PEKO " + edges[i + 1]).Attr.Color = color;
+                    System.Diagnostics.Debug.WriteLine("NOT FOUND " + edges[i] + " PEKO " + edges[i + 1]);
+                }
+                if (currEdge != null && currEdge.Attr.Color != Microsoft.Msagl.Drawing.Color.Green)
+                {
+                    currEdge.Attr.Color = color;
+                    //currEdge.Attr.Id = edges[i] + " PEKO " + edges[i + 1];
+                    System.Diagnostics.Debug.WriteLine("? " + currEdge.Attr.Id);
                 }
             }
         }
@@ -72,7 +76,7 @@ namespace Crawler
                     string parentAsli = pathBapak.Split(Path.DirectorySeparatorChar).Last();
                     string pathBenar = path.Replace(pathBapak, parentAsli);
                     pathBenar += "\\" + child;
-                    Global.colorEdge(pathBenar,ref graph,Microsoft.Msagl.Drawing.Color.Green);
+                    Global.colorEdge(pathBenar,graph,Microsoft.Msagl.Drawing.Color.Green);
                     if (!searchAll)
                     {
                         Global.isRunning = false;
@@ -121,14 +125,14 @@ namespace Crawler
                     string child = file.Split(Path.DirectorySeparatorChar).Last();
                     Microsoft.Msagl.Drawing.Edge test = graph.AddEdge(parent, child);
                     test.Attr.Id = parent + " PEKO " + child;
-                    System.Diagnostics.Debug.WriteLine(test.Attr.Id + " CEK");
+                    System.Diagnostics.Debug.WriteLine("> " + test.Attr.Id);
                     string parentAsli = pathToSearch.Split(Path.DirectorySeparatorChar).Last();
                     string pathBenar = path.Replace(pathToSearch, parentAsli);
                     pathBenar += "\\" + child;
                     if (file == path + "\\" + fileToSearch)
                     {
                         Global.result.Add(file);
-                        Global.colorEdge(pathBenar,ref graph,Microsoft.Msagl.Drawing.Color.Green);
+                        Global.colorEdge(pathBenar,graph,Microsoft.Msagl.Drawing.Color.Green);
                         if (!searchAll)
                         {
                             res = utility.copyList(Global.result);
@@ -136,7 +140,7 @@ namespace Crawler
                             return res;
                         }
                     }else{
-                        Global.colorEdge(pathBenar,ref graph,Microsoft.Msagl.Drawing.Color.Red);
+                        Global.colorEdge(pathBenar,graph,Microsoft.Msagl.Drawing.Color.Red);
                     }
                 }
 
@@ -147,6 +151,7 @@ namespace Crawler
                     string folder = dir.Split(Path.DirectorySeparatorChar).Last();
                     Microsoft.Msagl.Drawing.Edge eg = graph.AddEdge(parent, folder);
                     eg.Attr.Id = parent + " PEKO " + folder;
+                    System.Diagnostics.Debug.WriteLine("> " + eg.Attr.Id);
                     Global.pathQueue.Enqueue(dir);
                 }
             }
