@@ -1,0 +1,61 @@
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.exe
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.deps.json
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.runtimeconfig.json
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.dll
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.pdb
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.AssemblyReference.cache
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.Form1.resources
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.GenerateResource.cache
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.GeneratedMSBuildEditorConfig.editorconfig
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.AssemblyInfoInputs.cache
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.AssemblyInfo.cs
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.CoreCompileInputs.cache
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.dll
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\refint\Pekrowler.dll
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.pdb
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.genruntimeconfig.cache
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\ref\Pekrowler.dll
+D:\Code\C#\TubesStima2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.exe
+D:\Code\C#\TubesStima2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.deps.json
+D:\Code\C#\TubesStima2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.runtimeconfig.json
+D:\Code\C#\TubesStima2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.dll
+D:\Code\C#\TubesStima2\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.pdb
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.AssemblyReference.cache
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.Form1.resources
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.GenerateResource.cache
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.AssemblyInfoInputs.cache
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.AssemblyInfo.cs
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.CoreCompileInputs.cache
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.dll
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\refint\Pekrowler.dll
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.pdb
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.genruntimeconfig.cache
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\ref\Pekrowler.dll
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.exe
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.deps.json
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.runtimeconfig.json
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.dll
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\Pekrowler.pdb
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.AssemblyReference.cache
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.Form1.resources
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.GenerateResource.cache
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.AssemblyInfoInputs.cache
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.AssemblyInfo.cs
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.CoreCompileInputs.cache
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.dll
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\refint\Pekrowler.dll
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.pdb
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.genruntimeconfig.cache
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\ref\Pekrowler.dll
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\AutomaticGraphLayout.dll
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\AutomaticGraphLayout.Drawing.dll
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\Microsoft.Msagl.GraphViewerGdi.dll
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\bin\Debug\net6.0-windows\Microsoft.Msagl.WpfGraphControl.dll
+C:\Users\zaydz\OneDrive - Institut Teknologi Bandung\Semester 4\Stima\Tubes 2\Pekrowler\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.CopyComplete
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\AutomaticGraphLayout.dll
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\AutomaticGraphLayout.Drawing.dll
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\Microsoft.Msagl.GraphViewerGdi.dll
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\Microsoft.Msagl.WpfGraphControl.dll
+D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.CopyComplete

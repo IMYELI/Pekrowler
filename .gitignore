@@ -1,0 +1,11 @@
+.vs
+.vscode
+.bin/Debug
+
+*.slo
+*.lo
+*.o
+*.obj
+*.exe
+*.out
+*.app
