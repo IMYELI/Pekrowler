@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.ComponentModel;
+using System.Collections;
 namespace Crawler
 {
     class utility
@@ -32,35 +34,44 @@ namespace Crawler
             string[] edges = path.Split(Path.DirectorySeparatorChar);
 
             for (int i=0;i<edges.Length-1;i++){
-                System.Diagnostics.Debug.WriteLine("! " + edges[i] + " PEKO " + edges[i + 1]);
-                Microsoft.Msagl.Drawing.Edge currEdge = graph.EdgeById(edges[i] + " PEKO " + edges[i + 1]);
+                Microsoft.Msagl.Drawing.Edge currEdge = Global.edgeMap[edges[i] + " PEKO " + edges[i + 1]];
                 if (currEdge == null)
                 {
-                    System.Diagnostics.Debug.WriteLine("NOT FOUND " + edges[i] + " PEKO " + edges[i + 1]);
                 }
                 if (currEdge != null && currEdge.Attr.Color != Microsoft.Msagl.Drawing.Color.Green)
                 {
                     currEdge.Attr.Color = color;
                     //currEdge.Attr.Id = edges[i] + " PEKO " + edges[i + 1];
-                    System.Diagnostics.Debug.WriteLine("? " + currEdge.Attr.Id);
                 }
             }
+        }
+
+
+        public static Dictionary<String, Microsoft.Msagl.Drawing.Edge> edgeMap = new();
+
+        public static void updateGraph(BackgroundWorker worker)
+        {
+            Mutex mutex = new Mutex();
+            mutex.WaitOne();
+            worker.ReportProgress(1);
+            Thread.Sleep(200);
+            mutex.ReleaseMutex();
         }
 
     }
     class DFS
     {
-        public static List<string> searchDFS(string fileToSearch, string path, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph,ref Microsoft.Msagl.GraphViewerGdi.GViewer gViewer1)
+        public static List<string> searchDFS(string fileToSearch, string path, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph,BackgroundWorker worker, DoWorkEventArgs e)
         {
             Global.isRunning = true;
             List<string> res;
-            recursivelySearchDFS(fileToSearch, path, searchAll, ref graph, ref gViewer1,path);
+            recursivelySearchDFS(fileToSearch, path, searchAll, ref graph, path,worker, e);
             res = utility.copyList(Global.result);
             Global.clean();
             return res;
         }
 
-        private static void recursivelySearchDFS(string fileToSearch, string path, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph,ref Microsoft.Msagl.GraphViewerGdi.GViewer gViewer1, string pathBapak)
+        private static void recursivelySearchDFS(string fileToSearch, string path, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph, string pathBapak, BackgroundWorker worker, DoWorkEventArgs e)
         {
             String[] files = Directory.GetFiles(Path.GetFullPath(path));
             foreach (string file in files)
@@ -70,6 +81,7 @@ namespace Crawler
                 
                 Microsoft.Msagl.Drawing.Edge test = graph.AddEdge(parent, child);
                 test.Attr.Id = parent +" PEKO " + child;
+                Global.edgeMap[parent + " PEKO " + child] = test;
                 if (file == path + "\\" + fileToSearch && Global.isRunning)
                 {
                     Global.result.Add(file);
@@ -86,6 +98,8 @@ namespace Crawler
                 {
                     test.Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
                 }
+
+                Global.updateGraph(worker);
             }
 
             String[] dirs = Directory.GetDirectories(path);
@@ -99,8 +113,9 @@ namespace Crawler
                     Microsoft.Msagl.Drawing.Edge eg = graph.AddEdge(parent, folder);
                     eg.Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
                     eg.Attr.Id = parent + " PEKO " + folder;
-
-                    recursivelySearchDFS(fileToSearch, dir, searchAll, ref graph, ref gViewer1,pathBapak);
+                    Global.edgeMap[parent + " PEKO " + folder] = eg;
+                    Global.updateGraph(worker);
+                    recursivelySearchDFS(fileToSearch, dir, searchAll, ref graph,pathBapak, worker, e);
                 }
             }
         }
@@ -109,7 +124,7 @@ namespace Crawler
 
     class BFS
     {
-        public static List<string> searchBFS(string fileToSearch, string pathToSearch, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph)
+        public static List<string> searchBFS(string fileToSearch, string pathToSearch, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph, BackgroundWorker worker, DoWorkEventArgs e)
         {
             List<string> res;
             Global.pathQueue.Enqueue(pathToSearch);
@@ -125,6 +140,7 @@ namespace Crawler
                     string child = file.Split(Path.DirectorySeparatorChar).Last();
                     Microsoft.Msagl.Drawing.Edge test = graph.AddEdge(parent, child);
                     test.Attr.Id = parent + " PEKO " + child;
+                    Global.edgeMap[parent + " PEKO " + child] = test;
                     System.Diagnostics.Debug.WriteLine("> " + test.Attr.Id);
                     string parentAsli = pathToSearch.Split(Path.DirectorySeparatorChar).Last();
                     string pathBenar = path.Replace(pathToSearch, parentAsli);
@@ -142,6 +158,7 @@ namespace Crawler
                     }else{
                         Global.colorEdge(pathBenar,graph,Microsoft.Msagl.Drawing.Color.Red);
                     }
+                    Global.updateGraph(worker);
                 }
 
                 String[] dirs = Directory.GetDirectories(path);
@@ -151,8 +168,10 @@ namespace Crawler
                     string folder = dir.Split(Path.DirectorySeparatorChar).Last();
                     Microsoft.Msagl.Drawing.Edge eg = graph.AddEdge(parent, folder);
                     eg.Attr.Id = parent + " PEKO " + folder;
+                    Global.edgeMap[parent + " PEKO " + folder] = eg;
                     System.Diagnostics.Debug.WriteLine("> " + eg.Attr.Id);
                     Global.pathQueue.Enqueue(dir);
+                    Global.updateGraph(worker);
                 }
             }
             
