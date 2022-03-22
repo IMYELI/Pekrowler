@@ -21,6 +21,7 @@ namespace Crawler
     class Global
     {
         public static Queue<string> pathQueue = new Queue<string>();
+        public static Queue<string> nodePathQueue = new Queue<string>();
         public static List<string> result = new List<string>();
         public static Boolean isRunning = false;
         public static void clean()
@@ -29,16 +30,18 @@ namespace Crawler
             Global.pathQueue = new Queue<string>();
             Global.result = new List<string>();
             Global.nodeMap = new Dictionary<string, int>();
+            Global.nodePathQueue = new Queue<string>();
         }
         public static void colorEdge(string path, Microsoft.Msagl.Drawing.Graph graph, Microsoft.Msagl.Drawing.Color color)
         {
             string[] edges = path.Split(Path.DirectorySeparatorChar);
 
             for (int i=0;i<edges.Length-1;i++){
-                Debug.WriteLine(edges[i] + " PEKO " + edges[i + 1]);
+
                 Microsoft.Msagl.Drawing.Edge currEdge = Global.edgeMap[edges[i] + " PEKO " + edges[i + 1]];
                 if (currEdge == null)
                 {
+
                 }
                 if (currEdge != null && currEdge.Attr.Color != Microsoft.Msagl.Drawing.Color.Green)
                 {
@@ -125,7 +128,7 @@ namespace Crawler
                 Microsoft.Msagl.Drawing.Edge eg = new Microsoft.Msagl.Drawing.Edge(parentNode,childNode,Microsoft.Msagl.Drawing.ConnectionToGraph.Connected);
                 
                 graph.AddNode(childNode);
-                Debug.WriteLine(parentNode.Id + " NYODOK " + childNode.Id);
+
                 eg.Attr.Id = parent +" PEKO " + newChildNode;
                 Global.edgeMap[parent + " PEKO " + newChildNode] = eg;
                 if (file == path + "\\" + fileToSearch && Global.isRunning)
@@ -134,7 +137,7 @@ namespace Crawler
                     string parentAsli = pathBapak.Split(Path.DirectorySeparatorChar).Last();
                     string pathBenar = pathNode.Replace(pathBapak, parentAsli);
                     pathBenar += "\\" + newChildNode;
-                    Debug.WriteLine(pathBenar);
+
                     Global.colorEdge(pathBenar,graph,Microsoft.Msagl.Drawing.Color.Green);
                     if (!searchAll)
                     {
@@ -163,6 +166,7 @@ namespace Crawler
                     if(graph.FindNode(parent) == null)
                     {
                         parentNode = graph.AddNode(parent);
+                        Global.addNode(parent);
                     }
                     else
                     {
@@ -189,31 +193,54 @@ namespace Crawler
 
     class BFS
     {
-        public static List<string> searchBFS(string fileToSearch, string pathToSearch, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph, BackgroundWorker worker, DoWorkEventArgs e, string pathNode)
+        public static List<string> searchBFS(string fileToSearch, string pathToSearch, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph, BackgroundWorker worker, DoWorkEventArgs e)
         {
             List<string> res;
             Global.pathQueue.Enqueue(pathToSearch);
+            Global.nodePathQueue.Enqueue(pathToSearch);
             while (Global.pathQueue.Count > 0)
             {
                 string path = Global.pathQueue.Dequeue();
+                string pathNode = Global.nodePathQueue.Dequeue();
+
                 String[] files = Directory.GetFiles(Path.GetFullPath(path));
-                Console.WriteLine();
+                Microsoft.Msagl.Drawing.Edge eg = null;
+                Microsoft.Msagl.Drawing.Node parentNode = null;
+                Microsoft.Msagl.Drawing.Node childNode = null;
                 foreach (string file in files)
                 {
-                    Console.WriteLine(file);
-                    string parent = path.Split(Path.DirectorySeparatorChar).Last();
+                    string parent = pathNode.Split(Path.DirectorySeparatorChar).Last();
                     string child = file.Split(Path.DirectorySeparatorChar).Last();
-                    Microsoft.Msagl.Drawing.Edge test = graph.AddEdge(parent, child);
-                    test.Attr.Id = parent + " PEKO " + child;
-                    Global.edgeMap[parent + " PEKO " + child] = test;
-                    System.Diagnostics.Debug.WriteLine("> " + test.Attr.Id);
+                    Global.addNode(child);
+                    string newChild = Global.getNode(child);
+                    
+                    if(graph.FindNode(parent) == null)
+                    {
+                        parentNode = graph.AddNode(parent);
+                        Global.addNode(parent);
+                    }
+                    else
+                    {
+                        parentNode = graph.FindNode(parent);
+                    }
+
+                    childNode = new Microsoft.Msagl.Drawing.Node(child);
+                    childNode.Id = newChild;
+
+
+                    eg = new Microsoft.Msagl.Drawing.Edge(parentNode, childNode, Microsoft.Msagl.Drawing.ConnectionToGraph.Connected);
+                    graph.AddNode(childNode);
+                    eg.Attr.Id = parent + " PEKO " + newChild;
+                    Global.edgeMap[parent + " PEKO " + newChild] = eg;
+
                     string parentAsli = pathToSearch.Split(Path.DirectorySeparatorChar).Last();
-                    string pathBenar = path.Replace(pathToSearch, parentAsli);
-                    pathBenar += "\\" + child;
+                    string pathBenar = pathNode.Replace(pathToSearch, parentAsli);
+                    pathBenar += "\\" + newChild;
                     if (file == path + "\\" + fileToSearch)
                     {
                         Global.result.Add(file);
                         Global.colorEdge(pathBenar,graph,Microsoft.Msagl.Drawing.Color.Green);
+
                         if (!searchAll)
                         {
                             res = utility.copyList(Global.result);
@@ -223,21 +250,44 @@ namespace Crawler
                     }else{
                         Global.colorEdge(pathBenar,graph,Microsoft.Msagl.Drawing.Color.Red);
                     }
-                    Global.updateGraph(worker);
-                }
 
+                    Global.updateGraph(worker);
+
+                }
+                Microsoft.Msagl.Drawing.Node folderNode = null;
                 String[] dirs = Directory.GetDirectories(path);
                 foreach (string dir in dirs)
                 {
-                    string parent = path.Split(Path.DirectorySeparatorChar).Last();
+                    string parent = pathNode.Split(Path.DirectorySeparatorChar).Last();
                     string folder = dir.Split(Path.DirectorySeparatorChar).Last();
-                    Microsoft.Msagl.Drawing.Edge eg = graph.AddEdge(parent, folder);
-                    eg.Attr.Id = parent + " PEKO " + folder;
-                    Global.edgeMap[parent + " PEKO " + folder] = eg;
-                    System.Diagnostics.Debug.WriteLine("> " + eg.Attr.Id);
+                    Global.addNode(folder);
+                    string newFolder = Global.getNode(folder);
+                    parentNode = null;
+                    if(graph.FindNode(parent) == null)
+                    {
+                        parentNode = graph.AddNode(parent);
+                        Global.addNode(parent);
+                    }
+                    else
+                    {
+                        parentNode = graph.FindNode(parent);
+                    }
+
+                    folderNode = new Microsoft.Msagl.Drawing.Node(folder);
+                    folderNode.Id = newFolder;
+
+                    eg = new Microsoft.Msagl.Drawing.Edge(parentNode,folderNode,Microsoft.Msagl.Drawing.ConnectionToGraph.Connected);;
+                    graph.AddNode(folderNode);
+
+                    eg.Attr.Id = parent + " PEKO " + newFolder;
+                    Global.edgeMap[parent + " PEKO " + newFolder] = eg;
+                    
+                    string newPathNode  = pathNode+ "\\" + newFolder;
                     Global.pathQueue.Enqueue(dir);
+                    Global.nodePathQueue.Enqueue(newPathNode);
                     Global.updateGraph(worker);
                 }
+
             }
             
             res = utility.copyList(Global.result);
