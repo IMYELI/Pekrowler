@@ -38,7 +38,7 @@ namespace Pekrowler
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
+            button2.Enabled = (radioButton1.Checked || radioButton2.Checked) && textBox2.Text != "" && textBox1.Text != "" && textBox3.Text != "";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace Pekrowler
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            button2.Enabled = (radioButton1.Checked || radioButton2.Checked);
+            button2.Enabled = (radioButton1.Checked || radioButton2.Checked) && textBox2.Text != "" && textBox1.Text != "" && textBox3.Text != "";
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -111,7 +111,7 @@ namespace Pekrowler
         }
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            button2.Enabled = (radioButton1.Checked || radioButton2.Checked);
+            button2.Enabled = (radioButton1.Checked || radioButton2.Checked) && textBox2.Text != "" && textBox1.Text != "" && textBox3.Text != "";
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -121,11 +121,11 @@ namespace Pekrowler
             if (radioButton1.Checked)
             {
 
-                e.Result = Crawler.BFS.searchBFS(argPass.fileName, argPass.rootFolder, argPass.findAll, ref argPass.graph, worker, e);
+                e.Result = Crawler.BFS.searchBFS(argPass.fileName, argPass.rootFolder, argPass.findAll, ref argPass.graph, argPass.timeDelay, worker, e);
             }
             else
             {
-                e.Result = Crawler.DFS.searchDFS(argPass.fileName, argPass.rootFolder, argPass.findAll, ref argPass.graph, worker, e);
+                e.Result = Crawler.DFS.searchDFS(argPass.fileName, argPass.rootFolder, argPass.findAll, ref argPass.graph, argPass.timeDelay, worker, e);
             }
         }
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -160,6 +160,38 @@ namespace Pekrowler
             gViewer1.Graph = null;
             gViewer1.Graph = argPass.graph;
         }
+
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int.Parse(textBox3.Text);
+                button2.Enabled = (radioButton1.Checked || radioButton2.Checked) && textBox2.Text != "" && textBox1.Text != "" && textBox3.Text != "";
+                argPass.timeDelay = hScrollBar1.Value;
+            }
+            catch(Exception ex)
+            {
+                textBox3.Text = "";
+            }
+            
+        }
+
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            textBox3.Text = hScrollBar1.Value.ToString();
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            button2.Enabled = (radioButton1.Checked || radioButton2.Checked) && textBox2.Text != "" && textBox1.Text != "" && textBox3.Text != "";
+        }
     }
     public class argPass
     {
@@ -170,6 +202,7 @@ namespace Pekrowler
         public static List<string> paths = new();
         public static bool finished = false;
         public static Stopwatch sw = new Stopwatch();
+        public static int timeDelay = 0;
 
         public static void setArg(string fileName, string rootFolder, bool findAll, Microsoft.Msagl.Drawing.Graph graph)
         {

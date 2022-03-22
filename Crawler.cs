@@ -54,12 +54,12 @@ namespace Crawler
 
         public static Dictionary<String, Microsoft.Msagl.Drawing.Edge> edgeMap = new();
 
-        public static void updateGraph(BackgroundWorker worker)
+        public static void updateGraph(BackgroundWorker worker, int timeDelay)
         {
             Mutex mutex = new Mutex();
             mutex.WaitOne();
             worker.ReportProgress(1);
-            Thread.Sleep(500);
+            Thread.Sleep(timeDelay);
             mutex.ReleaseMutex();
         }
 
@@ -92,17 +92,17 @@ namespace Crawler
     }
     class DFS
     {
-        public static List<string> searchDFS(string fileToSearch, string path, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph,BackgroundWorker worker, DoWorkEventArgs e)
+        public static List<string> searchDFS(string fileToSearch, string path, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph, int timeDelay,BackgroundWorker worker, DoWorkEventArgs e)
         {
             Global.isRunning = true;
             List<string> res;
-            recursivelySearchDFS(fileToSearch, path, searchAll, ref graph, path,worker, e, path);
+            recursivelySearchDFS(fileToSearch, path, searchAll, ref graph, timeDelay, path,worker, e, path);
             res = utility.copyList(Global.result);
             Global.clean();
             return res;
         }
 
-        private static void recursivelySearchDFS(string fileToSearch, string path, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph, string pathBapak, BackgroundWorker worker, DoWorkEventArgs e, string pathNode)
+        private static void recursivelySearchDFS(string fileToSearch, string path, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph, int timeDelay, string pathBapak, BackgroundWorker worker, DoWorkEventArgs e, string pathNode)
         {
             String[] files = Directory.GetFiles(Path.GetFullPath(path));
             foreach (string file in files)
@@ -128,7 +128,6 @@ namespace Crawler
                 Microsoft.Msagl.Drawing.Edge eg = new Microsoft.Msagl.Drawing.Edge(parentNode,childNode,Microsoft.Msagl.Drawing.ConnectionToGraph.Connected);
                 
                 graph.AddNode(childNode);
-
                 eg.Attr.Id = parent +" PEKO " + newChildNode;
                 Global.edgeMap[parent + " PEKO " + newChildNode] = eg;
                 if (file == path + "\\" + fileToSearch && Global.isRunning)
@@ -149,7 +148,7 @@ namespace Crawler
                     eg.Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
                 }
 
-                Global.updateGraph(worker);
+                Global.updateGraph(worker, timeDelay);
             }
 
             String[] dirs = Directory.GetDirectories(path);
@@ -182,9 +181,9 @@ namespace Crawler
                     eg.Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
                     eg.Attr.Id = parent + " PEKO " + newFolder;
                     Global.edgeMap[parent + " PEKO " + newFolder] = eg;
-                    pathNode += "\\" + newFolder;
-                    Global.updateGraph(worker);
-                    recursivelySearchDFS(fileToSearch, dir, searchAll, ref graph,pathBapak, worker, e, pathNode);
+                    string newPathNode = pathNode + "\\" + newFolder;
+                    Global.updateGraph(worker, timeDelay);
+                    recursivelySearchDFS(fileToSearch, dir, searchAll, ref graph, timeDelay, pathBapak, worker, e, newPathNode);
                 }
             }
         }
@@ -193,7 +192,7 @@ namespace Crawler
 
     class BFS
     {
-        public static List<string> searchBFS(string fileToSearch, string pathToSearch, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph, BackgroundWorker worker, DoWorkEventArgs e)
+        public static List<string> searchBFS(string fileToSearch, string pathToSearch, bool searchAll, ref Microsoft.Msagl.Drawing.Graph graph, int timeDelay, BackgroundWorker worker, DoWorkEventArgs e)
         {
             List<string> res;
             Global.pathQueue.Enqueue(pathToSearch);
@@ -251,7 +250,7 @@ namespace Crawler
                         Global.colorEdge(pathBenar,graph,Microsoft.Msagl.Drawing.Color.Red);
                     }
 
-                    Global.updateGraph(worker);
+                    Global.updateGraph(worker, timeDelay);
 
                 }
                 Microsoft.Msagl.Drawing.Node folderNode = null;
@@ -285,7 +284,7 @@ namespace Crawler
                     string newPathNode  = pathNode+ "\\" + newFolder;
                     Global.pathQueue.Enqueue(dir);
                     Global.nodePathQueue.Enqueue(newPathNode);
-                    Global.updateGraph(worker);
+                    Global.updateGraph(worker, timeDelay);
                 }
 
             }
