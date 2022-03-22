@@ -121,7 +121,7 @@ namespace Pekrowler
             if (radioButton1.Checked)
             {
 
-                e.Result = Crawler.BFS.searchBFS(argPass.fileName, argPass.rootFolder, argPass.findAll, ref argPass.graph, worker, e);
+                e.Result = Crawler.BFS.searchBFS(argPass.fileName, argPass.rootFolder, argPass.findAll, ref argPass.graph, worker, e, argPass.rootFolder);
             }
             else
             {
