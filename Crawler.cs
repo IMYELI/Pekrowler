@@ -201,11 +201,12 @@ namespace Crawler
             {
                 string path = Global.pathQueue.Dequeue();
                 string pathNode = Global.nodePathQueue.Dequeue();
-
                 String[] files = Directory.GetFiles(Path.GetFullPath(path));
                 Microsoft.Msagl.Drawing.Edge eg = null;
                 Microsoft.Msagl.Drawing.Node parentNode = null;
                 Microsoft.Msagl.Drawing.Node childNode = null;
+                string parentAsli = pathToSearch.Split(Path.DirectorySeparatorChar).Last();
+                string pathBenar = pathNode.Replace(pathToSearch, parentAsli);
                 foreach (string file in files)
                 {
                     string parent = pathNode.Split(Path.DirectorySeparatorChar).Last();
@@ -232,13 +233,12 @@ namespace Crawler
                     eg.Attr.Id = parent + " PEKO " + newChild;
                     Global.edgeMap[parent + " PEKO " + newChild] = eg;
 
-                    string parentAsli = pathToSearch.Split(Path.DirectorySeparatorChar).Last();
-                    string pathBenar = pathNode.Replace(pathToSearch, parentAsli);
-                    pathBenar += "\\" + newChild;
+                    
+                    String pathBenar1 = pathBenar + "\\" + newChild;
                     if (file == path + "\\" + fileToSearch)
                     {
                         Global.result.Add(file);
-                        Global.colorEdge(pathBenar,graph,Microsoft.Msagl.Drawing.Color.Green);
+                        Global.colorEdge(pathBenar1,graph,Microsoft.Msagl.Drawing.Color.Green);
 
                         if (!searchAll)
                         {
@@ -247,7 +247,7 @@ namespace Crawler
                             return res;
                         }
                     }else{
-                        Global.colorEdge(pathBenar,graph,Microsoft.Msagl.Drawing.Color.Red);
+                        Global.colorEdge(pathBenar1,graph,Microsoft.Msagl.Drawing.Color.Red);
                     }
 
                     Global.updateGraph(worker, timeDelay);
@@ -280,7 +280,13 @@ namespace Crawler
 
                     eg.Attr.Id = parent + " PEKO " + newFolder;
                     Global.edgeMap[parent + " PEKO " + newFolder] = eg;
-                    
+
+                    if (Directory.GetDirectories(path+"\\"+folder).Length == 0 && Directory.GetFiles(path + "\\" + folder).Length == 0)
+                    {
+                        string pathBenar2 = pathBenar + "\\" + newFolder;
+                        Global.colorEdge(pathBenar2, graph, Microsoft.Msagl.Drawing.Color.Red);
+                    }
+
                     string newPathNode  = pathNode+ "\\" + newFolder;
                     Global.pathQueue.Enqueue(dir);
                     Global.nodePathQueue.Enqueue(newPathNode);
