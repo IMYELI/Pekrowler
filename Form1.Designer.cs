@@ -40,7 +40,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
             this.gViewer1 = new Microsoft.Msagl.GraphViewerGdi.GViewer();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -165,17 +165,6 @@
             this.label4.Visible = false;
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(317, 497);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(60, 15);
-            this.linkLabel1.TabIndex = 11;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "linkLabel1";
-            this.linkLabel1.Visible = false;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -284,7 +273,7 @@
             // hScrollBar1
             // 
             this.hScrollBar1.AllowDrop = true;
-            this.hScrollBar1.Location = new System.Drawing.Point(102, 262);
+            this.hScrollBar1.Location = new System.Drawing.Point(97, 258);
             this.hScrollBar1.Maximum = 1000;
             this.hScrollBar1.Minimum = 1;
             this.hScrollBar1.Name = "hScrollBar1";
@@ -293,11 +282,22 @@
             this.hScrollBar1.Value = 1;
             this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(317, 497);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 15);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "label10";
+            this.label10.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 588);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.hScrollBar1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox3);
@@ -306,7 +306,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.gViewer1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button2);
@@ -339,7 +338,6 @@
         private Button button2;
         private CheckBox checkBox1;
         private Label label4;
-        private LinkLabel linkLabel1;
         private Label label5;
         private Microsoft.Msagl.GraphViewerGdi.GViewer gViewer1;
         private Label label6;
@@ -349,5 +347,6 @@
         private TextBox textBox3;
         private Label label9;
         private HScrollBar hScrollBar1;
+        private Label label10;
     }
 }

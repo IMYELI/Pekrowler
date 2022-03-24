@@ -67,7 +67,18 @@ namespace Pekrowler
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            for (int i = 0; i > -1; i++)
+            {
+                if (this.Controls.Contains(this.Controls[i.ToString()]))
+                {
+                    this.Controls.Remove(this.Controls[i.ToString()]);
+                }
+                else
+                {
+                    break;
+                }
+            }
+            label10.Hide();
             label4.Show();
             string fileName = textBox2.Text;
             string rootFolder = textBox1.Text;
@@ -76,12 +87,6 @@ namespace Pekrowler
 
             argPass.setArg(fileName, rootFolder, findAll, graph);
             backgroundWorker1.RunWorkerAsync();
-
-
-
-
-            label5.Show();
-            linkLabel1.Show();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -142,18 +147,19 @@ namespace Pekrowler
 
             if (argPass.paths.Count > 0)
             {
-                linkLabel1.Text = "";
                 for (int i = 0; i < argPass.paths.Count; i++)
                 {
-                    linkLabel1.Text = linkLabel1.Text + (i + 1).ToString() + ". " + argPass.paths[i] + "\n";
+                    var linkLabel = new LinkLabel { Text = (((i + 1).ToString() + ". " + argPass.paths[i])), Location = new Point(317, 497 + (18 * i)), AutoSize = true, Name = i.ToString() };
+                    linkLabel.Click += (sender, e) => onLinkLabelClickOpenFile(sender, e);
+                    this.Controls.Add(linkLabel);
+                    linkLabel.Show();
                 }
             }
             else
             {
-                linkLabel1.Text = "File not found.";
+                label10.Show();
             }
             label5.Show();
-            linkLabel1.Show();
         }
         private void backgroundWorker1_ProgressChanged(object sender,ProgressChangedEventArgs e)
         {
@@ -191,6 +197,15 @@ namespace Pekrowler
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             button2.Enabled = (radioButton1.Checked || radioButton2.Checked) && textBox2.Text != "" && textBox1.Text != "" && textBox3.Text != "";
+        }
+
+        private void onLinkLabelClickOpenFile(object sender, EventArgs e)
+        {
+            LinkLabel link = (LinkLabel)sender;
+            string id = link.Name;
+            int i = Int32.Parse(id);
+            Debug.WriteLine(i);
+            Process.Start("explorer.exe", (argPass.paths[i].Replace(argPass.paths[i].Split(Path.DirectorySeparatorChar).Last(), "")));
         }
     }
     public class argPass
