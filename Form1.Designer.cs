@@ -287,9 +287,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(317, 497);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 15);
+            this.label10.Size = new System.Drawing.Size(84, 15);
             this.label10.TabIndex = 21;
-            this.label10.Text = "label10";
+            this.label10.Text = "File not found.";
             this.label10.Visible = false;
             // 
             // Form1

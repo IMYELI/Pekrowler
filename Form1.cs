@@ -160,7 +160,9 @@ namespace Pekrowler
             {
                 for (int i = 0; i < argPass.paths.Count; i++)
                 {
-                    var linkLabel = new LinkLabel { Text = (((i + 1).ToString() + ". " + argPass.paths[i])), Location = new Point(317, 497 + (18 * i)), AutoSize = true, Name = i.ToString() };
+                    int anchorX = this.Controls["label4"].Location.X;
+                    int anchorY = this.Controls["label4"].Location.Y;
+                    var linkLabel = new LinkLabel { Text = (((i + 1).ToString() + ". " + argPass.paths[i])), Location = new Point(anchorX, anchorY + ((i + 1) * 18)), AutoSize = true, Name = i.ToString() };
                     linkLabel.Click += (sender, e) => onLinkLabelClickOpenFile(sender, e);
                     this.Controls.Add(linkLabel);
                     linkLabel.Show();
