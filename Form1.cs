@@ -85,6 +85,17 @@ namespace Pekrowler
             bool findAll = checkBox1.Checked;
             Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
 
+            button2.Enabled = false;
+            button1.Enabled = false;
+            textBox1.Enabled = false;
+            textBox2.Enabled = false;
+            textBox3.Enabled = false;
+            radioButton1.Enabled = false;
+            radioButton2.Enabled = false;
+            hScrollBar1.Enabled = false;
+            checkBox1.Enabled = false;
+
+
             argPass.setArg(fileName, rootFolder, findAll, graph);
             backgroundWorker1.RunWorkerAsync();
         }
@@ -160,6 +171,15 @@ namespace Pekrowler
                 label10.Show();
             }
             label5.Show();
+            button2.Enabled = true;
+            button1.Enabled = true;
+            textBox1.Enabled = true;
+            textBox2.Enabled = true;
+            textBox3.Enabled = true;
+            radioButton1.Enabled = true;
+            radioButton2.Enabled = true;
+            hScrollBar1.Enabled = true;
+            checkBox1.Enabled = true;
         }
         private void backgroundWorker1_ProgressChanged(object sender,ProgressChangedEventArgs e)
         {
