@@ -43,7 +43,7 @@ namespace Crawler
                 {
 
                 }
-                if (currEdge != null && currEdge.Attr.Color != Microsoft.Msagl.Drawing.Color.Green)
+                if (currEdge != null && currEdge.Attr.Color != Microsoft.Msagl.Drawing.Color.SkyBlue)
                 {
                     currEdge.Attr.Color = color;
                     //currEdge.Attr.Id = edges[i] + " PEKO " + edges[i + 1];
@@ -137,7 +137,7 @@ namespace Crawler
                     string pathBenar = pathNode.Replace(pathBapak, parentAsli);
                     pathBenar += "\\" + newChildNode;
 
-                    Global.colorEdge(pathBenar,graph,Microsoft.Msagl.Drawing.Color.Green);
+                    Global.colorEdge(pathBenar,graph,Microsoft.Msagl.Drawing.Color.SkyBlue);
                     if (!searchAll)
                     {
                         Global.isRunning = false;
@@ -145,7 +145,7 @@ namespace Crawler
                     }
                 }else
                 {
-                    eg.Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                    eg.Attr.Color = Microsoft.Msagl.Drawing.Color.Orange;
                 }
 
                 Global.updateGraph(worker, timeDelay);
@@ -178,7 +178,7 @@ namespace Crawler
                     Microsoft.Msagl.Drawing.Edge eg = new Microsoft.Msagl.Drawing.Edge(parentNode,folderNode,Microsoft.Msagl.Drawing.ConnectionToGraph.Connected);;
                     graph.AddNode(folderNode);
 
-                    eg.Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                    eg.Attr.Color = Microsoft.Msagl.Drawing.Color.Orange;
                     eg.Attr.Id = parent + " PEKO " + newFolder;
                     Global.edgeMap[parent + " PEKO " + newFolder] = eg;
                     string newPathNode = pathNode + "\\" + newFolder;
@@ -238,7 +238,7 @@ namespace Crawler
                     if (file == path + "\\" + fileToSearch)
                     {
                         Global.result.Add(file);
-                        Global.colorEdge(pathBenar1,graph,Microsoft.Msagl.Drawing.Color.Green);
+                        Global.colorEdge(pathBenar1,graph,Microsoft.Msagl.Drawing.Color.PowderBlue);
 
                         if (!searchAll)
                         {
@@ -247,7 +247,7 @@ namespace Crawler
                             return res;
                         }
                     }else{
-                        Global.colorEdge(pathBenar1,graph,Microsoft.Msagl.Drawing.Color.Red);
+                        Global.colorEdge(pathBenar1,graph,Microsoft.Msagl.Drawing.Color.Orange);
                     }
 
                     Global.updateGraph(worker, timeDelay);
@@ -284,7 +284,7 @@ namespace Crawler
                     if (Directory.GetDirectories(path+"\\"+folder).Length == 0 && Directory.GetFiles(path + "\\" + folder).Length == 0)
                     {
                         string pathBenar2 = pathBenar + "\\" + newFolder;
-                        Global.colorEdge(pathBenar2, graph, Microsoft.Msagl.Drawing.Color.Red);
+                        Global.colorEdge(pathBenar2, graph, Microsoft.Msagl.Drawing.Color.Orange);
                     }
 
                     string newPathNode  = pathNode+ "\\" + newFolder;

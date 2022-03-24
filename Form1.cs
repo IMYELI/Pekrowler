@@ -98,6 +98,7 @@ namespace Pekrowler
 
             argPass.setArg(fileName, rootFolder, findAll, graph);
             backgroundWorker1.RunWorkerAsync();
+           
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -186,8 +187,9 @@ namespace Pekrowler
         private void backgroundWorker1_ProgressChanged(object sender,ProgressChangedEventArgs e)
         {
             gViewer1.Graph = null;
-            gViewer1.Graph = argPass.graph;
-        }
+            while (argPass.graph is null) { Thread.Sleep(1); };
+            gViewer1.Graph = argPass.graph;    
+    }
 
 
         private void label9_Click(object sender, EventArgs e)
@@ -199,9 +201,21 @@ namespace Pekrowler
         {
             try
             {
-                int.Parse(textBox3.Text);
-                button2.Enabled = (radioButton1.Checked || radioButton2.Checked) && textBox2.Text != "" && textBox1.Text != "" && textBox3.Text != "";
-                argPass.timeDelay = hScrollBar1.Value;
+                int animationSpeed = int.Parse(textBox3.Text);
+                button2.Enabled = (radioButton1.Checked || radioButton2.Checked) && textBox2.Text != "" && textBox1.Text != "" && textBox3.Text != "" && animationSpeed > 30;
+                argPass.timeDelay = animationSpeed;
+                if (animationSpeed <= 30)
+                {
+                    label11.Show();
+                    label11.ForeColor = Color.Red;
+                    label12.Show();
+                    label12.ForeColor = Color.Red;
+                }
+                else
+                {
+                    label11.Hide();
+                    label12.Hide();
+                }
             }
             catch(Exception ex)
             {
@@ -228,6 +242,26 @@ namespace Pekrowler
             int i = Int32.Parse(id);
             Debug.WriteLine(i);
             Process.Start("explorer.exe", (argPass.paths[i].Replace(argPass.paths[i].Split(Path.DirectorySeparatorChar).Last(), "")));
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
     public class argPass

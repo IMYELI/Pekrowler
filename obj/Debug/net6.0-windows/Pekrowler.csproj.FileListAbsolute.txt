@@ -59,3 +59,9 @@ D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\
 D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\Microsoft.Msagl.GraphViewerGdi.dll
 D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\bin\Debug\net6.0-windows\Microsoft.Msagl.WpfGraphControl.dll
 D:\Tugas Andre\ITB\IF\Semester 4\Strategi Algoritma\Tubes 2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.CopyComplete
+D:\Code\C#\TubesStima2\Pekrowler\bin\Debug\net6.0-windows\AutomaticGraphLayout.dll
+D:\Code\C#\TubesStima2\Pekrowler\bin\Debug\net6.0-windows\AutomaticGraphLayout.Drawing.dll
+D:\Code\C#\TubesStima2\Pekrowler\bin\Debug\net6.0-windows\Microsoft.Msagl.GraphViewerGdi.dll
+D:\Code\C#\TubesStima2\Pekrowler\bin\Debug\net6.0-windows\Microsoft.Msagl.WpfGraphControl.dll
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.csproj.CopyComplete
+D:\Code\C#\TubesStima2\Pekrowler\obj\Debug\net6.0-windows\Pekrowler.Properties.Resources.resources
