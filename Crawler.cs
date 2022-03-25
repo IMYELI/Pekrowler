@@ -365,6 +365,7 @@ namespace Crawler
                     }else{
                         /* Mengubah warna edge yang salah menjadi Orange */
                         Global.colorEdge(pathBenar1,graph,Microsoft.Msagl.Drawing.Color.Orange);
+                        childNode.Attr.Color = Microsoft.Msagl.Drawing.Color.Orange;
                     }
                     /* Mengubah tampilan graf sesuai time delay */
                     Global.updateGraph(worker, timeDelay);
