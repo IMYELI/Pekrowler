@@ -48,6 +48,19 @@ namespace Crawler
                     currEdge.Attr.Color = color;
                     //currEdge.Attr.Id = edges[i] + " PEKO " + edges[i + 1];
                 }
+
+                //MEWARNAI NODE
+                Microsoft.Msagl.Drawing.Node parentNode = graph.FindNode(currEdge.Source);
+                Microsoft.Msagl.Drawing.Node childNode = graph.FindNode(currEdge.Target);
+                if(parentNode.Attr.Color != Microsoft.Msagl.Drawing.Color.SkyBlue)
+                {
+                    if (i == edges.Length - 2)
+                    {
+                        childNode.Attr.Color = color;
+                    }
+                    parentNode.Attr.Color = color;
+                }
+                
             }
         }
 
@@ -146,6 +159,7 @@ namespace Crawler
                 }else
                 {
                     eg.Attr.Color = Microsoft.Msagl.Drawing.Color.Orange;
+                    childNode.Attr.Color = Microsoft.Msagl.Drawing.Color.Orange;
                 }
 
                 Global.updateGraph(worker, timeDelay);
@@ -179,6 +193,7 @@ namespace Crawler
                     graph.AddNode(folderNode);
 
                     eg.Attr.Color = Microsoft.Msagl.Drawing.Color.Orange;
+                    folderNode.Attr.Color = Microsoft.Msagl.Drawing.Color.Orange;
                     eg.Attr.Id = parent + " PEKO " + newFolder;
                     Global.edgeMap[parent + " PEKO " + newFolder] = eg;
                     string newPathNode = pathNode + "\\" + newFolder;
